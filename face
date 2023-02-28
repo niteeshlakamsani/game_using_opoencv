@@ -1,0 +1,18 @@
+import   cv2
+from cvzone.FaceMeshModule import FaceMeshDetector
+from main1 import detector
+
+cap = cv2.VideoCapture(0)
+cap.set(3,1280)
+c ap.set(4,720)
+
+
+
+
+while True:
+    success , img = cap.read()
+    img, faces = detector.findFaceMesh(img)
+    if faces:
+        print(faces[0])
+    cv2.imshow("Image",img)
+    cv2.waitKey(1)
